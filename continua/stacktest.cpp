@@ -1,5 +1,5 @@
 #include <iostream>
-#include "stackpointer.h"
+#include "stack.h"
 
 using namespace std;
 
