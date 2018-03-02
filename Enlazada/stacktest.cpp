@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include <cassert>
-#include "stackpointer.h"
+#include "stack.h"
 
 using namespace std;
 
