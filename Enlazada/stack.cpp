@@ -1,13 +1,14 @@
+
 #include "stack.h"
 #include<iostream>
 using namespace std;
 
 
 
-
-void push(Stack&p,std::string palo,int num)
+namespace Stack {
+void push( Stack& p,std::string palo,int num)
 {
-    Stack aux=new Stack();
+    Stack aux=new Nodo();
     aux->c.numero= num;
      aux->c.palo= palo;
     aux->next=p;
@@ -15,7 +16,7 @@ void push(Stack&p,std::string palo,int num)
 
 }
 
-Carta pop(Stack&s)
+Carta pop(Stack& s)
 {
     Stack aux=s;
     Carta c=aux->c;
@@ -25,7 +26,7 @@ Carta pop(Stack&s)
 }
 
 
-void coutstack(Stack &s)
+void coutstack(Stack& s)
 {
     Stack aux=s;
     while(aux)
@@ -34,6 +35,10 @@ void coutstack(Stack &s)
         aux = aux->next;
     }
     cout<<endl;
+}
+void nullstack(Stack &s)
+{
+    s=NULL;
 }
 
 
@@ -48,5 +53,5 @@ bool isempty(Stack &s)
         return false;
     }
 }
-
+}
 
