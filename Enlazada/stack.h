@@ -1,33 +1,25 @@
-#ifndef STACKPOINTER_H_INCLUDED
-#define STACKPOINTER_H_INCLUDED
+
+#ifndef STACK_H_INCLUDED
+#define STACK_H_INCLUDED
 #include <array>
 
-using namespace std;
-
-
+namespace Stack{
 struct Carta {
 int numero;
 std::string palo;
-
 };
-namespace Stack{
-struct Stack
+struct Nodo
 {
     Carta c;
-    Stack *next;
+
+    Nodo *next;
 };
-
-
-typedef Stack* mazo;
-typedef Stack*espadas;
-typedef Stack*copas;
-typedef Stack*oros;
-typedef Stack*bastos;
-
-
-void push(Stack*&s,std::string palo,int num);
-Carta pop(Stack*&s);
-void coutstack(Stack*&s);
-bool isempty(Stack*&s);
+typedef Nodo *Stack;
+void push(Stack&,std::string palo,int num);
+Carta pop(Stack& );
+void coutstack(Stack& );
+void nullstack(Stack& );
+bool isempty(Stack& );
 }
-#endif // STACKPOINTER_H_INCLUDED
+#endif // STACK_H_INCLUDED*/
+
