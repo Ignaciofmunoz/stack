@@ -19,66 +19,47 @@ void CargarCartas()
 }
 void Dividirporpalo()
 {
-
-
     Carta Aux;
     string palo;
     int num;
-
     while(mazo)
     {
-
         Aux=pop(mazo);
-        palo =Aux.palo;
-        num =Aux.numero;
-        if(palo=="basto")
-        {
-            push(bastos,palo,num);
-
-        }
+        if(aux.palo=="basto")
+            push(bastos,aux);
         else
-        {
-            if(palo=="oro")
-            {
-                push(oros,basto,num);
-            }
+            if(aux.palo=="oro")
+                push(oros,aux);
             else
-            {
-                if(palo=="copa")
-                {
-                    push(copas,basto,num);
-                }
+                if(aux.palo=="copa")
+                    push(copas,aux);
                 else
-                {
-                    if(palo=="espada")
-                    {
-                        push(espadas,palo,num);
-                    }
-                }
-            }
-        }
-    }
+                    if(aux.palo=="espada")
+                        push(espadas,aux);
+   }
 }
 
 int main()
 {
-
+    Stack mazo,espadas,oros,bastos,copas;
+    InitStack(mazo);
+    InitStack(oros);
+    InitStack(espadas);
+    InitStack(bastos);
+    InitStack(copas);
     CargarCartas();
     cout<<"se muestran todo el mazo "<<endl<<endl;
     coutstack(mazo);
     Dividirporpalo();
     cout<<"se muestran los 4 mazos correspondientes a cada palo"<<endl<<endl;
-        cout<<"Bastos:"<<endl<<endl;
+    cout<<"Bastos:"<<endl<<endl;
     coutstack (bastos);
-      cout<<"Oros:"<<endl<<endl;
+    cout<<"Oros:"<<endl<<endl;
     coutstack (oros);
-      cout<<"Copas:"<<endl<<endl;
+    cout<<"Copas:"<<endl<<endl;
     coutstack(copas);
-      cout<<"Espadas:"<<endl<<endl;
+    cout<<"Espadas:"<<endl<<endl;
     coutstack (espadas);
-
-
-
     return 0;
 }
 
