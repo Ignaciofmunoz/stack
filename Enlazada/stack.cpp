@@ -1,24 +1,20 @@
-
-#include "stack.h"
+#include "stackpointer.h"
 #include<iostream>
 using namespace std;
-
-
-
 namespace Stack {
-void push( Stack& p,std::string palo,int num)
+void push( Nodo& p,Carta&c)
 {
-    Stack aux=new Nodo();
-    aux->c.numero= num;
-     aux->c.palo= palo;
+    Nodo aux=new Nodo();
+    aux->c.numero= c.numero;
+     aux->c.palo= c.palo;
     aux->next=p;
     p=aux;
 
 }
 
-Carta pop(Stack& s)
+Carta pop(Nodo& s)
 {
-    Stack aux=s;
+    Nodo aux=s;
     Carta c=aux->c;
     s=aux->next;
     delete aux;
@@ -26,9 +22,9 @@ Carta pop(Stack& s)
 }
 
 
-void coutstack(Stack& s)
+void coutstack(Nodo& s)
 {
-    Stack aux=s;
+    Nodo aux=s;
     while(aux)
     {
     cout<<"Carta: "<<aux->c.numero <<"   de "<<aux->c.palo<<endl;
@@ -36,22 +32,17 @@ void coutstack(Stack& s)
     }
     cout<<endl;
 }
-void nullstack(Stack &s)
-{
-    s=NULL;
-}
 
 
-bool isempty(Stack &s)
+bool isempty(Nodo &s)
 {
     if(&s==nullptr)
-    {
         return true;
-    }
     else
-    {
         return false;
-    }
+}
+void InitStack(Stack&s)
+{
+   Stack s=NULL;
 }
 }
-
