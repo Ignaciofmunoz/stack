@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <cassert>
 #include "stack.h"
@@ -20,8 +19,9 @@ void InitCartas(Stack::Carta&b,Stack::Carta&c,Stack::Carta&e,Stack::Carta&o)
 int main()
 {
     using namespace Stack;
-	using ::Stack::Nodo;
+	using ::Stack::Stack;
 Stack S;
+InitStack(S);//no hace nada, para que queden igual los archivos
 Carta b,c,e,o;
 InitCartas(b,c,e,o);
 cout<<"Esta es la prueba para la estructura de datos Pila (LIFO) "<<endl<<"en este caso para resolver problemas con cartas españolas"<<endl;
@@ -51,4 +51,3 @@ cout<<"Esta es la prueba para la estructura de datos Pila (LIFO) "<<endl<<"en es
     assert(isempty(S));
  return 0;
 }
-
