@@ -1,53 +1,64 @@
 #include <iostream>
-#include <cassert>
+#include <fstream>
 #include "stack.h"
 
 using namespace std;
+using namespace Stack;
+using::Stack::Nodo;
+using::Stack::Carta;
 
-void InitCartas(Stack::Carta&b,Stack::Carta&c,Stack::Carta&e,Stack::Carta&o)
+void CargarCartas();
+void Dividirporpalo();
+
+void CargarCartas()
 {
-    b.numero=1;
-    b.palo="palo";
-    c.numero=5;
-    c.palo="copa";
-     e.numero=9;
-   e.palo="espada";
-     o.numero=12;
-   o.palo="oro";
+    Carta c;
+    ifstream in("mazo.txt");
+    for (c;in>>c.numero>>c.palo;)
+    {push(mazo,aux);}
+}
+void Dividirporpalo()
+{
+    Carta Aux;
+    string palo;
+    int num;
+    while(mazo)
+    {
+        Aux=pop(mazo);
+        if(aux.palo=="basto")
+            push(bastos,aux);
+        else
+            if(aux.palo=="oro")
+                push(oros,aux);
+            else
+                if(aux.palo=="copa")
+                    push(copas,aux);
+                else
+                    if(aux.palo=="espada")
+                        push(espadas,aux);
+   }
 }
 
 int main()
 {
-    using namespace Stack;
-	using ::Stack::Nodo;
-Stack S;
-Carta b,c,e,o;
-InitCartas(b,c,e,o);
-cout<<"Esta es la prueba para la estructura de datos Pila (LIFO) "<<endl<<"en este caso para resolver problemas con cartas españolas"<<endl;
-    cout<<"se inicia la pila (vacia)"<<endl;
-    cout<<"se cargan las cartas: 1 de basto , 5 de copa ,9 de espada y 12 de oro"<<endl<<endl;
-    push(S,b);
-    push(S,c);
-    assert(pop(S).numero==5);
-    push(S,c);
-    assert(pop(S).palo=="copa");
-    push(S,c);
-    push(S,e);
-    push(S,o);
-    assert(pop(S).numero==12);
-    push(S,o);
-    assert(pop(S).palo=="oro");
-    push(S,o);
-    coutstack(S);
-        while (not isempty(S))
-    {
-        cout<<"Se retira la ultima de la pila:\t"<<endl;
-        Carta aux =pop(S);
-      cout<<aux.numero <<" de "<<aux.palo<<endl<<endl;
-      cout<<"Se muestran las cartas del mazo"<<endl<<endl;
-        coutstack(S);
-    }
-    assert(isempty(S));
- return 0;
+    Stack mazo,espadas,oros,bastos,copas;
+    InitStack(mazo);
+    InitStack(oros);
+    InitStack(espadas);
+    InitStack(bastos);
+    InitStack(copas);
+    CargarCartas();
+    cout<<"se muestran todo el mazo "<<endl<<endl;
+    coutstack(mazo);
+    Dividirporpalo();
+    cout<<"se muestran los 4 mazos correspondientes a cada palo"<<endl<<endl;
+    cout<<"Bastos:"<<endl<<endl;
+    coutstack (bastos);
+    cout<<"Oros:"<<endl<<endl;
+    coutstack (oros);
+    cout<<"Copas:"<<endl<<endl;
+    coutstack(copas);
+    cout<<"Espadas:"<<endl<<endl;
+    coutstack (espadas);
+    return 0;
 }
-
