@@ -2,9 +2,9 @@
 #include<iostream>
 using namespace std;
 namespace Stack {
-void push( Nodo& p,Carta&c)
+void push( Nodo&p,Carta&c)
 {
-    Nodo aux=new Nodo();
+    Stack aux=new Nodo();
     aux->c.numero= c.numero;
      aux->c.palo= c.palo;
     aux->next=p;
@@ -12,7 +12,7 @@ void push( Nodo& p,Carta&c)
 
 }
 
-Carta pop(Nodo& s)
+Carta pop(Nodo&s)
 {
     Nodo aux=s;
     Carta c=aux->c;
@@ -34,15 +34,17 @@ void coutstack(Nodo& s)
 }
 
 
-bool isempty(Nodo &s)
+bool isempty(const Nodo &s)
 {
     if(&s==nullptr)
         return true;
     else
         return false;
 }
-void InitStack(Stack&s)
+void InitStack(const Nodo&s)
 {
-   Stack s=NULL;
+    s=NULL;
 }
 }
+
+
