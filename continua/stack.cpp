@@ -1,18 +1,15 @@
 #include "stack.h"
-
 #include<iostream>
 using namespace std;
 
 
-Stack s;
+namespace Stack{
 
-
-
-void push (Stack&s,std::string palo,int num)
+void push (Stack&s,Carta&c)
 {
 
-     s.a.at(s.i).palo=palo;
-         s.a.at(s.i).numero=num;
+     s.a.at(s.i).palo=c.palo;
+         s.a.at(s.i).numero=c.numero;
         s.i++;
 
 }
@@ -25,8 +22,6 @@ Carta  pop (Stack&s)
 
 void coutstack(Stack&s)
 {
-
-
     for (int i=0; i<(s.i); i++)
     {
         cout<<"Carta: "<<s.a.at(i).numero <<"   de "<<s.a.at(i).palo<<endl;
@@ -37,12 +32,12 @@ void coutstack(Stack&s)
 bool isempty (Stack&s)
 {
     if(s.i==0)
-    {
         return true;
-    }
     else
-    {
         return false;
-    }
 }
+void InitStack(Stack&)//para que queden exactamentes iguales las implementaciones
+{
 
+}
+}
