@@ -1,38 +1,22 @@
 #include <iostream>
-#include <cstdio>
-
+#include <fstream>
 #include "stack.h"
 
+using namespace std;
 using namespace Stack;
-using ::Stack::Stack;
-  Stack mazo;
-  Stack espadas;
-  Stack copas;
-  Stack oros;
-  Stack bastos;
+using::Stack::Nodo;
+using::Stack::Carta;
 
 void CargarCartas();
 void Dividirporpalo();
 
 void CargarCartas()
 {
-
-    FILE*txt;
-    txt=fopen("mazo.txt","r");
-    int num;
-    char palo [10];
-    while (fscanf(txt,"%i\t%s\n", &num, palo )!=EOF)//va leyendo mientras no sea el fin del archivo
-    {
-        push(mazo,palo,num);
-
-
-    }
-    fclose(txt);
+    Carta c;
+    ifstream in("mazo.txt");
+    for (c;in>>c.numero>>c.palo;)
+    {push(mazo,aux);}
 }
-
-
-
-
 void Dividirporpalo()
 {
 
@@ -56,13 +40,13 @@ void Dividirporpalo()
         {
             if(palo=="oro")
             {
-                push(oros,palo,num);
+                push(oros,basto,num);
             }
             else
             {
                 if(palo=="copa")
                 {
-                    push(copas,palo,num);
+                    push(copas,basto,num);
                 }
                 else
                 {
@@ -75,7 +59,7 @@ void Dividirporpalo()
         }
     }
 }
-*/
+
 int main()
 {
 
@@ -97,3 +81,4 @@ int main()
 
     return 0;
 }
+
