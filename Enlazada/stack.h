@@ -1,5 +1,5 @@
-#ifndef STACK_H_INCLUDED
-#define STACK_H_INCLUDED
+#ifndef STACKPOINTER_H_INCLUDED
+#define STACKPOINTER_H_INCLUDED
 #include <array>
 using namespace std;
 
@@ -14,11 +14,12 @@ struct Nodo
     Nodo *next;
 };
 struct Stack{Nodo *cima;};
-void push(Nodo&,&Carta);
+
+void push(Nodo&,Carta&);
 Carta pop(Nodo&);//cambie todo los stack por nodo
 void coutstack(Nodo& );
 void nullstack(Nodo& );
-bool isempty(Nodo& );
-void InitStacks(Nodo&)
+bool isempty(const Nodo& );
+void InitStacks(const Nodo&);
 }
-#endif // STACK_H_INCLUDED
+#endif // STACKPOINTER_H_INCLUDED
