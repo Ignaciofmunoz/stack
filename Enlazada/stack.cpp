@@ -1,20 +1,18 @@
-#include "stackpointer.h"
+#include "stack.h"
 #include<iostream>
 using namespace std;
 namespace Stack {
-void push( Nodo&p,Carta&c)
+void push( Nodo*&p,Carta&c)//pruebo metiendo los asteriscos haber que onda
 {
-    Stack aux=new Nodo();
+    Nodo *aux=new Nodo;
     aux->c.numero= c.numero;
      aux->c.palo= c.palo;
     aux->next=p;
     p=aux;
-
 }
-
-Carta pop(Nodo&s)
+Carta pop(Nodo*&s)
 {
-    Nodo aux=s;
+    Nodo *aux=s;
     Carta c=aux->c;
     s=aux->next;
     delete aux;
@@ -22,9 +20,9 @@ Carta pop(Nodo&s)
 }
 
 
-void coutstack(Nodo& s)
+void coutstack(Nodo*& s)
 {
-    Nodo aux=s;
+    Nodo *aux=s;
     while(aux)
     {
     cout<<"Carta: "<<aux->c.numero <<"   de "<<aux->c.palo<<endl;
@@ -34,17 +32,16 @@ void coutstack(Nodo& s)
 }
 
 
-bool isempty(const Nodo &s)
+bool isempty(const Nodo *s)
 {
-    if(&s==nullptr)
+    if(s==NULL)
         return true;
     else
         return false;
 }
-void InitStack(const Nodo&s)
+void InitStack(const Nodo*&s)
 {
     s=NULL;
 }
 }
-
 
