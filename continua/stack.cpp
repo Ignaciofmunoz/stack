@@ -2,7 +2,6 @@
 #include<iostream>
 using namespace std;
 
-
 namespace Stack{
 
 void push (Stack&s,Carta&c)
