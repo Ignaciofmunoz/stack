@@ -2,27 +2,27 @@
 #include<iostream>
 using namespace std;
 namespace Stack {
-void push( Nodo*&p,Carta&c)//pruebo metiendo los asteriscos haber que onda
+void push(Stack&p,Carta&c)
 {
-    Nodo *aux=new Nodo;
+    Nodo* aux=new Nodo();
     aux->c.numero= c.numero;
      aux->c.palo= c.palo;
-    aux->next=p;
-    p=aux;
+    aux->next=p.cima;
+    p.cima=aux;
 }
-Carta pop(Nodo*&s)
+Carta pop(Stack&s)
 {
-    Nodo *aux=s;
+    Nodo *aux=s.cima;
     Carta c=aux->c;
-    s=aux->next;
+    s.cima=aux->next;
     delete aux;
     return c;
 }
 
 
-void coutstack(Nodo*& s)
+void coutstack(Stack&s)
 {
-    Nodo *aux=s;
+    Nodo *aux=s.cima;
     while(aux)
     {
     cout<<"Carta: "<<aux->c.numero <<"   de "<<aux->c.palo<<endl;
@@ -32,16 +32,11 @@ void coutstack(Nodo*& s)
 }
 
 
-bool isempty(const Nodo *s)
+bool isempty(const Stack &S)
 {
-    if(s==NULL)
+    if(S.cima==NULL)
         return true;
     else
         return false;
 }
-void InitStack(const Nodo*&s)
-{
-    s=NULL;
 }
-}
-
