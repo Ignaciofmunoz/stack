@@ -1,7 +1,6 @@
 #include "stack.h"
 #include<iostream>
 using namespace std;
-
 namespace Stack{
 
 void push (Stack&s,Carta&c)
@@ -35,8 +34,5 @@ bool isempty (Stack&s)
     else
         return false;
 }
-void InitStack(Stack&)//para que queden exactamentes iguales las implementaciones
-{
 
-}
 }
