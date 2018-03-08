@@ -1,27 +1,18 @@
-
-//#include "stack.h"
-#include "C:\Users\nacho\Desktop\entrega tp\stack\stackcont\stack.h"
-//#include "C:\Users\nacho\Desktop\entrega tp\stack\stackenlazada\stack.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include "stack.h"
 
 using namespace std;
 using namespace Stack;
 
 void CargarCartas();
 void Dividirporpalo();
-   Stack::Stack  mazo,espadas,oros,bastos,copas; //va en la continua
-  /* Nodo* mazo;//todo esto para la enlazada
-   Nodo* espadas;
-   Nodo* copas;
-   Nodo* oros;
-   Nodo* bastos;
-*/
-
+Stack::Stack  mazo,espadas,oros,bastos,copas; //va en la continua
 
 void CargarCartas()
 {
-    Carta c;
-
-
+    Stack:: Carta c;
    ifstream in("mazo.txt");
 
    for (c;in>>c.numero>>c.palo;)
@@ -51,10 +42,8 @@ void Dividirporpalo()
                         push(espadas,aux);
    }
 }
-
 int main()
 {
-
     CargarCartas();
     cout<<"se muestran todo el mazo "<<endl<<endl;
     coutstack(mazo);
