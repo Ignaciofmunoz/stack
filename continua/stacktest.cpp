@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cassert>
-#include "stack.h" solo en la entrega en git
+#include "stack.h" 
 
 
 using namespace std;
