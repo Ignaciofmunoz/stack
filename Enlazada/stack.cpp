@@ -2,13 +2,13 @@
 #include<iostream>
 using namespace std;
 namespace Stack {
-void push(Stack&p,Carta&c)
+void push(Stack&s,Carta&c)
 {
     Nodo* aux=new Nodo();
     aux->c.numero= c.numero;
      aux->c.palo= c.palo;
-    aux->next=p.cima;
-    p.cima=aux;
+    aux->next=s.cima;
+    s.cima=aux;
 }
 Carta pop(Stack&s)
 {
