@@ -1,75 +1,64 @@
 #include <iostream>
 #include <fstream>
-#include <string>
-
-//#include "stack.h"
-//#include "C:\Users\nacho\Desktop\entrega tp\stack\stackcont\stack.h"
-#include "C:\Users\nacho\Desktop\entrega tp\stack\stackenlazada\stack.h"
-
+#include "queue.h"
+#define cutnum 30000000
+#define maxprocedures 5
 using namespace std;
-using namespace Stack;
+using namespace Queue;
 
-void CargarCartas();
-void Dividirporpalo();
-   //Stack::Stack  mazo,espadas,oros,bastos,copas; //va en la continua
-   Nodo* mazo;//todo esto para la enlazada
-   Nodo* espadas;
-   Nodo* copas;
-   Nodo* oros;
-   Nodo* bastos;
-
-
-
-void CargarCartas()
+Queue::Queue q ;
+void CargarDNIs(Queue::Queue&q)
 {
-    Carta c;
-
-
-   ifstream in("mazo.txt");
-
-   for (c;in>>c.numero>>c.palo;)
-    {
-      push(mazo,c);
-    }
-
+    ifstream in("DNI.txt");
+    for(int  dni; in >> dni ;)
+        Enq(q,dni);
 }
-void Dividirporpalo()
+void Reorgxnum(Queue::Queue&q,Queue::Queue&qhigh,Queue::Queue&qless)
 {
-      Stack::Carta aux;
-
-   while(not isempty(mazo))
-
+    while(not IsEmpty(q))
     {
-        aux=pop(mazo);
-        if(aux.palo=="basto")
-            push(bastos,aux);
+        int num= Deq(q);
+        if(num>=cutnum)
+            Enq(qhigh,num);
         else
-            if(aux.palo=="oro")
-                push(oros,aux);
-            else
-                if(aux.palo=="copa")
-                    push(copas,aux);
-                else
-                    if(aux.palo=="espada")
-                        push(espadas,aux);
-   }
+            Enq(qless,num);
+    }
+}
+void Reorgxord(Queue::Queue&q,Queue::Queue&qtod,Queue::Queue&qtom){
+    int aux;
+for(int i=0;i<maxprocedures;i++){
+     aux =Deq(q);
+    Enq(qtod,aux);
+}while(not IsEmpty(q)){
+    aux =Deq(q);
+    Enq(qtom,aux);
+}
 }
 
 int main()
 {
- 
-    CargarCartas();
-    cout<<"se muestran todo el mazo "<<endl<<endl;
-    coutstack(mazo);
-    Dividirporpalo();
-    cout<<"se muestran los 4 mazos correspondientes a cada palo"<<endl<<endl;
-    cout<<"Bastos:"<<endl<<endl;
-    coutstack (bastos);
-    cout<<"Oros:"<<endl<<endl;
-    coutstack (oros);
-    cout<<"Copas:"<<endl<<endl;
-    coutstack(copas);
-    cout<<"Espadas:"<<endl<<endl;
-    coutstack (espadas);
-    return 0;
+    Queue::Queue q,qless,qhigh,qltod,qltom,qhtod,qhtom;
+    CargarDNIs(q);
+    cout<<"Estos son los turnos entregados en el dia de la fecha "<<endl<<endl;
+    cout<<"NOTA:Por la naturaleza del tramite solo se atienden  "<<maxprocedures <<"  turnos al dia."<<endl;
+    cout<<"(El resto de los tramites seran realizados mañana )"<<endl<<endl;
+    CoutQueue(q);
+    cout<<"Los tramites de DNI's superiores a "<<cutnum<<" \n se realizan"
+    " en la oficina #1, los inferiores en la  #2"<<endl<<endl;
+    Reorgxnum(q,qless,qhigh);
+    cout<<"Turnos a tramitar en la oficina #1 "<<endl<<endl;
+    CoutQueue(qless);
+    cout<<"Turnos a tramitar en la oficina #2"<<endl<<endl;
+    CoutQueue(qhigh);
+    Reorgxord(qless,qltod,qltom);
+     Reorgxord(qhigh,qhtod,qhtom);
+ cout<<"Turnos a tramitar en la oficina #1 hoy"<<endl<<endl;
+    CoutQueue(qltod);
+    cout<<"Turnos a tramitar en la oficina #2 hoy"<<endl<<endl;
+    CoutQueue(qhtod);
+cout<<"Turnos a tramitar en la oficina #1 mañana"<<endl<<endl;
+    CoutQueue(qltom);
+    cout<<"Turnos a tramitar en la oficina #2 mañana"<<endl<<endl;
+    CoutQueue(qhtom);
+
 }
