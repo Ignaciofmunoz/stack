@@ -2,9 +2,7 @@
 #define STACK_H_INCLUDED
 #include <array>
 #include <string>
-
 using namespace std;
-
 namespace Stack{
 struct Carta {
 int numero;
@@ -15,11 +13,9 @@ struct Stack
  std::array<Carta ,100000>a;
     int i=0;
 };
-
 Carta  pop (Stack&);
 void push (Stack&,Carta&);
 bool isempty (Stack&);
 void coutstack(Stack&);
-void InitStack(Stack&);
 }
-#endif // STACKCONT_H_INCLUDED
+#endif // STACK_H_INCLUDED
