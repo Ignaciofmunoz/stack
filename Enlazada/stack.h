@@ -1,5 +1,6 @@
 #ifndef STACKPOINTER_H_INCLUDED
 #define STACKPOINTER_H_INCLUDED
+#include <array>
 #include <string>
 using namespace std;
 
@@ -13,12 +14,9 @@ struct Nodo
     Carta c;
     Nodo *next;
 };
-struct Stack{Nodo *cima;};//no le logro dar uso
-
-void push(Nodo* &,Carta&);
-Carta pop(Nodo *&);
-void coutstack(Nodo *& );
-bool isempty( const Nodo * );
-//void InitStack(Nodo *&);
+struct Stack{Nodo *cima=NULL;};
+void push(Stack&,Carta&);
+Carta pop(Stack&);void coutstack(Stack&);
+bool isempty( const Stack& );
 }
 #endif // STACKPOINTER_H_INCLUDED
